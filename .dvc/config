@@ -1,4 +1,4 @@
 [core]
     remote = origin
 ['remote "origin"']
-    url = gdrive://1NDMx2m8dqJKa4fLLV7QZeQceqTctmQUi/ASL-Alphabet/data.zip
+    url = https://github.com/nclgbd/ASL-Alphabet.git
