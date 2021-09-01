@@ -4,7 +4,7 @@
 name: Test Build Methods
 
 on:
-  push:
+  # push:
   pull_request:
     types: [opened]
 

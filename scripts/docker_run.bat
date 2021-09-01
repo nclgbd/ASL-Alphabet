@@ -1,1 +1,1 @@
-docker run -it --rm nclgbd/mltraindev:develop
+docker run -it --rm nclgbd/asltrain
