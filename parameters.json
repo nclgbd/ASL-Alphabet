@@ -1,6 +1,6 @@
 {
-    "DATA_DIR": "./train/",
-    "TEST_DIR": "./validation/",
+    "DATA_DIR": "./data/asl_alphabet_train/",
+    "TEST_DIR": "./data/asl_alphabet_test/",
     "MODEL_DIR": "./saved_models/",
     "MEDIA_DIR": "./media/",
     "INC_DIR": "./incorrect_images/",

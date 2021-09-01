@@ -1,4 +1,4 @@
 [core]
     remote = origin
 ['remote "origin"']
-    url = https://github.com/nclgbd/ASL-Alphabet.git
+    url = data.zip
