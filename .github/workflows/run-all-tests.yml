@@ -1,0 +1,36 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: Test Build Methods
+
+on:
+  push:
+  pull_request:
+    types: [opened]
+
+jobs:
+  build-and-test-env:
+    runs-on: ubuntu-latest
+    container:
+      image: nclgbd/mltraindev:develop
+    steps:
+    - uses: actions/checkout@v2
+    - uses: iterative/setup-dvc@v1
+    - name: Setup env
+      run: |
+        dvc get https://github.com/iterative/dataset-registry tutorials/versioning/data.zip
+        unzip data.zip
+        mv data/train .
+        mv data/validation .
+
+        # Remove the directories since they're not needed anymore
+        rm -f data.zip
+        rm -rf data/train
+        rm -rf data/validation
+    - name: Run tests
+      shell: bash -l {0}
+      run: |
+        mkdir -p media/ incorrect_images/ saved_models/
+        conda activate torch_base
+        ls -la
+        pytest -v -s
