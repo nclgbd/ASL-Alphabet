@@ -16,6 +16,7 @@ jobs:
     - uses: iterative/setup-dvc@v1
     - name: Setup environment
       run: bash scripts/build.sh
+      
     - name: Train model
       id: train_xception
       shell: bash -l {0}

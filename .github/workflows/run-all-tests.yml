@@ -4,9 +4,7 @@
 name: Test Build Methods
 
 on:
-  # push:
-  pull_request:
-    types: [opened]
+  push:
 
 jobs:
   build-and-test-env:
@@ -18,6 +16,7 @@ jobs:
     - uses: iterative/setup-dvc@v1
     - name: Setup environment
       run: bash scripts/build.sh
+
     - name: Run tests
       shell: bash -l {0}
       run: |
