@@ -16,12 +16,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: iterative/setup-dvc@v1
-    - name: Setup env
+    - name: Setup environment
       run: bash scripts/build.sh
     - name: Run tests
       shell: bash -l {0}
       run: |
-        mkdir -p media/ incorrect_images/ saved_models/
         conda activate torch_base
         ls -la
         pytest -v -s

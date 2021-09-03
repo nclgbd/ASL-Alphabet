@@ -12,7 +12,7 @@ from pytorch_vision_utils.Utilities import clear_dirs, build
 
 # Default directory names
 with open("parameters.json", "r") as f:
-    print("Loading parameters...\n")
+    print("Loading parameters...")
     params = dict(json.load(f))
     
     DATA_DIR = params["DATA_DIR"]
