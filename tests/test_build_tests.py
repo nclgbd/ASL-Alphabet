@@ -21,9 +21,19 @@ def build_test():
         INC_DIR = params["INC_DIR"]
 
 
-    print("Initializing TrainingUtilities class...")
-    TrainingUtilities(data_dir=TEST_DIR, model_dir=MODEL_DIR, model_name="mobilenetv2")
-    TrainingUtilities(data_dir=TEST_DIR, model_dir=MODEL_DIR, model_name="xception")
+    print("Testing mobilenetv2...")
+    test = TrainingUtilities(data_dir=TEST_DIR, model_dir=MODEL_DIR, model_name="mobilenetv2")
+    try:
+        test.set_model_parameters(model_name="mobilenetv2", debug=True)
+    except:
+        return -1
+    
+    print("Testing xception...")
+    test = TrainingUtilities(data_dir=TEST_DIR, model_dir=MODEL_DIR, model_name="xception")
+    try:
+        test.set_model_parameters(model_name="xception", debug=True)
+    except:
+        return -2
 
     print("Initializing DatavisualizationUtilities class...")
     DataVisualizationUtilities()

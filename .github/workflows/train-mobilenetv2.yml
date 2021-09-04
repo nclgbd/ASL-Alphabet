@@ -14,13 +14,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: iterative/setup-dvc@v1
-    - name: Setup environment
-      run: bash scripts/build.sh
-      
     - name: Train model
       id: train_mobilenetv2
       shell: bash -l {0}
       run: |
+        bash scripts/build.sh
+        mkdir -p /workdir/media/ /workdir/incorrect_images/ /workdir/saved_models/
         ls -a
         conda activate torch_base
         echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
