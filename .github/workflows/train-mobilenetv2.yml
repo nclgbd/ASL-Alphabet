@@ -27,7 +27,7 @@ jobs:
     # Moving artifacts
     - name: Move artifacts
       run: |
-        mv media artifacts/
+        mv media/ artifacts/
         mv saved_models/mobilenetv2.pth artifacts/
         mv incorrect_images/ artifacts
     # Save artifacts 

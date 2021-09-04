@@ -21,6 +21,7 @@ jobs:
       shell: bash -l {0}
       run: |
         bash scripts/build.sh
+        mkdir -p /workdir/media/ /workdir/incorrect_images/ /workdir/saved_models/
         conda activate torch_base
         ls -la
         pytest -v -s
