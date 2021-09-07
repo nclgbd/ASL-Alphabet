@@ -14,12 +14,18 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: iterative/setup-dvc@v1
+    - name: Build env
+      run: |
+        mkdir -p /workdir/media/ /workdir/incorrect_images/ /workdir/saved_models/
+        # get zip file from google doc
+        wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1QZj_E8ixxh4n2Bv4AcSCcFayNejeBQV0' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1QZj_E8ixxh4n2Bv4AcSCcFayNejeBQV0" -O data.zip && rm -rf /tmp/cookies.txt
+        unzip -f data.zip
+        rm -f data.zip
+        
     - name: Train model
       id: train_mobilenetv2
       shell: bash -l {0}
       run: |
-        bash scripts/build.sh
-        mkdir -p /workdir/media/ /workdir/incorrect_images/ /workdir/saved_models/
         ls -a
         conda activate torch_base
         echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
