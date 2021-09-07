@@ -20,7 +20,7 @@ jobs:
     - name: Run tests
       shell: bash -l {0}
       run: |
-        mkdir -p /workdir/media/ /workdir/incorrect_images/ /workdir/saved_models/
-        conda activate torch_base
+        mkdir -p ./media/ ./incorrect_images/ ./saved_models/
         ls -la
+        conda activate torch_base
         pytest -v -s

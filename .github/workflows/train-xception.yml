@@ -21,7 +21,7 @@ jobs:
       id: train_xception
       shell: bash -l {0}
       run: |
-        mkdir -p /workdir/media/ /workdir/incorrect_images/ /workdir/saved_models/
+        mkdir -p ./media/ ./incorrect_images/ ./saved_models/
         ls -a
         conda activate torch_base
         echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"

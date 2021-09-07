@@ -21,6 +21,7 @@ jobs:
       id: train_mobilenetv2
       shell: bash -l {0}
       run: |
+        mkdir -p ./media/ ./incorrect_images/ ./saved_models/
         ls -a
         conda activate torch_base
         echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
