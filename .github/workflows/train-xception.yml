@@ -22,6 +22,7 @@ jobs:
         zip -FFv temp_data.zip --out data.zip
         unzip -f data.zip
         rm -f data.zip
+        rm -f temp_data.zip
 
     - name: Train model
       id: train_xception

@@ -22,6 +22,7 @@ jobs:
         zip -FFv temp_data.zip --out data.zip
         unzip -f data.zip
         rm -f data.zip
+        rm -f temp_data.zip
 
     - name: Run tests
       shell: bash -l {0}
