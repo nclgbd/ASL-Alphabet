@@ -14,9 +14,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: iterative/setup-dvc@v1
-    - name: Build env
+    - name: Setup env
+      shell: bash -l {0}
       run: bash scripts/build.sh
-
+      
     - name: Train model
       id: train_mobilenetv2
       shell: bash -l {0}
