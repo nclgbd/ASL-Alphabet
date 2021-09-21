@@ -13,15 +13,12 @@ jobs:
       image: nclgbd/asltrain:develop
     steps:
     - uses: actions/checkout@v2
-    - uses: iterative/setup-dvc@v1
-    - name: Setup env
-      shell: bash -l {0}
-      run: bash scripts/build.sh
-      
+    
     - name: Train model
       id: train_xception
       shell: bash -l {0}
       run: |
+        bash scripts/build.sh
         mkdir -p media/ incorrect_images/ saved_models/
         ls -a
         conda activate torch_base
